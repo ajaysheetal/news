@@ -1,0 +1,39 @@
+<div class="container">
+  <h1>{{title}}</h1>
+
+   {{#if errMsg}}
+        {{#each errMsg }}
+        <p style="color: red;">
+          {{this}}
+
+        </p>
+        {{/each}}
+        {{/if}}
+
+
+
+  <hr />
+  <div class="row">
+    <div class="col-md-6">
+      <form action="/products/add-products" method="post">
+        <div class="form-group">
+          <input type="text" name="product_name" class="form-control" placeholder="Product Name" autocomplete="off" />
+        </div>
+     
+        <div class="form-group">
+          <input type="text" name="sku" class="form-control" placeholder="SKU" autocomplete="off" />
+        </div>
+
+     
+        <div class="form-group">
+          <input type="text" name="price" class="form-control" placeholder="Price" autocomplete="off" />
+        </div>
+
+       
+        <div class="form-group">
+          <button class="btn btn-info">Save Product</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
