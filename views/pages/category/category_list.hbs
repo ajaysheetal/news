@@ -1,0 +1,59 @@
+<div class="container">
+
+  <h2>{{title}}</h2>
+  <a href="/category/add-category" class="btn btn-success">Add Category</a>
+  <br /><br />
+
+
+  {{!-- <div class=" row ">
+    <form action="/products/search" method="post">
+      <div class="col-md-6">
+        <input type="text" name = "search" class="form-control" placeholder="Enter product to serach">
+      </div>
+      <div class="col-md-3">
+        <input type="submit" class="btn btn-primary">
+      </div>
+    </form>
+
+    <div class="col-md-3">
+      <a href="/products/product-list" class="btn btn-success">Reset Search</a>
+    </div>
+  </div>
+
+  <br /><br /><br /><br /> --}}
+
+
+  <table class="table">
+    <tr>
+      <th>Sr No.</th>
+      <th>Category Name</th>
+      <th>Status</th>
+      
+      <th>Action</th>
+    </tr>
+    {{#each products}}
+    <tr>
+      <td>{{this.id}}</td>
+      <td>{{this.name}}</td>
+      <td>{{this.sku}}</td>
+      <td>{{this.price}}</td>
+      <td>
+        <a href="/products/edit-products/{{this.id}}" class="btn btn-info btn-sm">Edit</a>
+        <a href="/products/delete/{{this.id}}" class="btn btn-danger btn-sm" onclick="return msg();">Delete</a>
+      </td>
+    </tr>
+    {{/each}}
+  </table>
+</div>
+
+<script>
+  function msg() {
+    var check = confirm('Are you sure to delete records');
+    if (check) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+</script>
