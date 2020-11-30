@@ -19,12 +19,12 @@ router.post('/save-category', function (req, res, next) {
 
 
 // render List category 
-router.get('/category-list', function (req, res, next) {
-  const responsedata = categoryService.listCategory(req, res);
- console.log( "----->>>",responsedata);
- responsedata.setHeader('Content-Type', 'text/html');
+router.get('/category-list', async function  (req, res) {
+  const listdata =  await categoryService.listCategory();
+  //console.log(responsedata);
+  //console.log(listdata.result);
 
-  res.render('pages/category/category_list', { title: 'Category' ,products: responsedata.json()});
+  res.render('pages/category/category_list', {title: 'Category List',listdata:listdata.result });
 });
 
 
